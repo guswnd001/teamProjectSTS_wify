@@ -7,8 +7,6 @@
 <title>Insert title here</title>
 </head>
 <body>
-      
-blank
-      
+z
 </body>
 </html>

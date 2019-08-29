@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD MAPPER 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="mybatis.mybatis_mapper">
+
+
+
+
+
+
+<!-- 가영 시작 -->
+	<select id="theater_information" resultType="TheaterInfo">
+		select REGION_CODE,REGION_NAME,THEATER_CODE,THEATER_NAME,EXIST_4D,EXIST_IMAX,EXIST_NORMAL from theater_information
+	</select>
+
+
+
+
+	<insert id="insertTheaterCondition" parameterType="TheaterCondition" >
+		insert into theater_condition values (num, id, movie_name, region_code, theater_code, room, target_date, sysdate, sysdate)
+	</insert>
+	
+	<select id="lastNum" resultType="int">
+		select max(num) from theater_condition
+	</select>
+
+
+	<select id="theater_condition" resultType="TheaterCondition">
+		select * from theater_condition where target_date >= now()
+	</select>
+<!-- 가영 끝 -->
+
+
+
+</mapper>

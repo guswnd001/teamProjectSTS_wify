@@ -28,29 +28,29 @@ public class Test3 {
 				+ "format=json&dep=GMP&arr=CJU&depDate=20190831&"
 				+ "adt=1&chd=0&inf=0&tripDivi=0&airlineCode=KE&siteCode=";
 		
-		//Á¤º¸ ÃßÃâ
-		System.out.println("================Á¤º¸ÃßÃâ================");
+		//ì •ë³´ ì¶”ì¶œ
+		System.out.println("================ì •ë³´ ì¶”ì¶œ================");
 		JSONArray infoArr = readJsonFromUrl(iptUrl)
 								.getJSONObject("replyAvailFare")
 								.getJSONArray("availFareSet");
 		JSONObject info = infoArr
 							.getJSONObject(0)
 							.getJSONObject("segFare");
-		System.out.println("Ç×°ø»ç ÄÚµå: " + info.get("carCode"));
-		System.out.println("Ç×°ø»ç ÀÌ¸§: " + info.get("carDesc"));
-		System.out.println("Ç×°øÆí: " + info.get("mainFlt"));
-		System.out.println("Ãâ¹ß ³¯Â¥: " + info.get("depDate"));
-		System.out.println("Ãâ¹ß ½Ã°£: " + info.get("depTime"));
-		System.out.println("µµÂø ³¯Â¥: " + info.get("arrDate"));
-		System.out.println("µµÂø ½Ã°£: " + info.get("arrTime"));
+		System.out.println("í•­ê³µì‚¬ ì½”ë“œ: " + info.get("carCode"));
+		System.out.println("í•­ê³µì‚¬ ì´ë¦„: " + info.get("carDesc"));
+		System.out.println("í•­ê³µí¸ëª…: " + info.get("mainFlt"));
+		System.out.println("ì¶œë°œë‚ ì§œ: " + info.get("depDate"));
+		System.out.println("ì¶œë°œì‹œê°„: " + info.get("depTime"));
+		System.out.println("ë„ì°©ë‚ ì§œ: " + info.get("arrDate"));
+		System.out.println("ë„ì°©ì‹œê°„: " + info.get("arrTime"));
 		
-		//°¡°İÁ¤º¸
-		System.out.println("=================°¡°İÁ¤º¸================");
+		//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+		System.out.println("=================ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½================");
 		JSONObject json5 = info.getJSONArray("classDetail").getJSONObject(0);
-		System.out.println(Integer.parseInt(json5.get("fareOrigin").toString()) + 1000 + "¿ø");
+		System.out.println(Integer.parseInt(json5.get("fareOrigin").toString()) + 1000 + "ï¿½ï¿½");
 		
-		//Ç×°ø±Ç Á¤º¸
-		System.out.println("================Ç×°ø±ÇÁ¤º¸================");
+		//ï¿½×°ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+		System.out.println("================ï¿½×°ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½================");
 		List<JSONObject> tripInfo = new ArrayList<JSONObject>();
 		System.out.println(infoArr.length());
 		

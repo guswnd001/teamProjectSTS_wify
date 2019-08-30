@@ -20,20 +20,14 @@ ${project = pageContext.request.contextPath ; ''}
 <link href="${project}/Dashio/lib/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 <!--external css-->
 <link href="${project}/Dashio/lib/font-awesome/css/font-awesome.css" rel="stylesheet" />
+<link rel="stylesheet" type="text/css" href="${project }/Dashio/css/zabuto_calendar.css">
+ <link rel="stylesheet" type="text/css" href="${project }/Dashio/lib/gritter/css/jquery.gritter.css" />
 <!-- Custom styles for this template -->
 <link href="${project}/Dashio/css/style.css" rel="stylesheet">
 <link href="${project}/Dashio/css/style-responsive.css" rel="stylesheet">
 
-<script src="${project}/Dashio/lib/jquery/jquery.min.js"></script>
-<script src="${project}/Dashio/lib/bootstrap/js/bootstrap.min.js"></script>
-<script src="${project}/Dashio/lib/jquery-ui-1.9.2.custom.min.js"></script>
-<script src="${project}/Dashio/lib/jquery.ui.touch-punch.min.js"></script>
-<script class="include" type="text/javascript"
-	src="${project}/Dashio/lib/jquery.dcjqaccordion.2.7.js"></script>
-<script src="${project}/Dashio/lib/jquery.scrollTo.min.js"></script>
-<script src="${project}/Dashio/lib/jquery.nicescroll.js" type="text/javascript"></script>
-<!--common script for all pages-->
-<script src="${project}/Dashio/lib/common-scripts.js"></script>
+  
+  <script src="${project}/Dashio/lib/chart-master/Chart.js"></script>
 
 
 </head>
@@ -80,7 +74,7 @@ ${project = pageContext.request.contextPath ; ''}
                 </a>
               </li>
               <li>
-                <a href="index.html#">
+                <a href="${project }/Dashio/index.jsp#">
                   <div class="task-info">
                     <div class="desc">Database Update</div>
                     <div class="percent">60%</div>
@@ -93,7 +87,7 @@ ${project = pageContext.request.contextPath ; ''}
                 </a>
               </li>
               <li>
-                <a href="index.html#">
+                <a href="${project }/Dashio/index.jsp#">
                   <div class="task-info">
                     <div class="desc">Product Development</div>
                     <div class="percent">80%</div>
@@ -106,7 +100,7 @@ ${project = pageContext.request.contextPath ; ''}
                 </a>
               </li>
               <li>
-                <a href="index.html#">
+                <a href="i${project }/Dashio/index.jsp#">
                   <div class="task-info">
                     <div class="desc">Payments Sent</div>
                     <div class="percent">70%</div>
@@ -136,7 +130,7 @@ ${project = pageContext.request.contextPath ; ''}
                 <p class="green">You have 5 new messages</p>
               </li>
               <li>
-                <a href="index.html#">
+                <a href="${project }/Dashio/index.jsp#">
                   <span class="photo"><img alt="avatar" src="img/ui-zac.jpg"></span>
                   <span class="subject">
                   <span class="from">Zac Snider</span>
@@ -148,7 +142,7 @@ ${project = pageContext.request.contextPath ; ''}
                   </a>
               </li>
               <li>
-                <a href="index.html#">
+                <a href="${project }/Dashio/index.jsp#">
                   <span class="photo"><img alt="avatar" src="img/ui-divya.jpg"></span>
                   <span class="subject">
                   <span class="from">Divya Manian</span>
@@ -257,19 +251,18 @@ ${project = pageContext.request.contextPath ; ''}
           <li class="mt">
             <a href="index.html">
               <i class="fa fa-dashboard"></i>
-              <span>Dashboard</span>
+              <span>MyPage</span>
               </a>
           </li>
           <li class="sub-menu">
             <a href="javascript:;">
               <i class="fa fa-desktop"></i>
-              <span>UI Elements</span>
+              <span>카테고리</span>
               </a>
             <ul class="sub">
-              <li><a href="general.html">General</a></li>
-              <li><a href="buttons.html">Buttons</a></li>
-              <li><a href="panels.html">Panels</a></li>
-              <li><a href="font_awesome.html">Font Awesome</a></li>
+              <li><a href="${project}/Dashio/movie.jsp">영화</a></li>
+              <li><a href="${project}/Dashio/air.jsp">항공</a></li>
+              <li><a href="${project}/Dashio/shopping">쇼핑</a></li>
             </ul>
           </li>
           <li class="sub-menu">
@@ -367,5 +360,4 @@ ${project = pageContext.request.contextPath ; ''}
       </div>
     </aside>
     <!--sidebar end-->
-<section id="main-content">
-<section class="wrapper site-min-height">
+

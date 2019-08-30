@@ -10,7 +10,7 @@
    
     <jsp-config>
       <jsp-property-group>
-         <url-pattern>/view/*</url-pattern>
+         <url-pattern>/view/Dashio/*</url-pattern>
          <include-prelude>/common/header.jsp</include-prelude>
          <include-coda>/common/footer.jsp</include-coda>
       </jsp-property-group>
@@ -21,8 +21,6 @@
       <servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
       <load-on-startup>1</load-on-startup>
    </servlet>
-   
-   
    <servlet-mapping>
       <servlet-name>dispatcher</servlet-name>
       <url-pattern>/</url-pattern>

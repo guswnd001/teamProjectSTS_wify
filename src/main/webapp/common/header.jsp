@@ -368,4 +368,4 @@ ${project = pageContext.request.contextPath ; ''}
     </aside>
     <!--sidebar end-->
 <section id="main-content">
-<section class="wrapper site-min-height">
+<section class="wrapper">

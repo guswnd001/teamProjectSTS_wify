@@ -1,4 +1,4 @@
-package jsoup;
+package crawlingTest;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -25,27 +25,27 @@ public class Test2 {
 				+ "format=json&dep=GMP&arr=CJU&depDate=20190829&"
 				+ "adt=1&chd=0&inf=0&tripDivi=0&airlineCode=KE&siteCode=";
 		
-		//Á¤º¸ ÃßÃâ
-		System.out.println("================Á¤º¸ÃßÃâ================");
+		//ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+		System.out.println("================ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½================");
 		JSONArray infoArr = readJsonFromUrl(iptUrl)
 								.getJSONObject("replyAvailFare")
 								.getJSONArray("availFareSet");
 		JSONObject info = infoArr
 							.getJSONObject(0)
 							.getJSONObject("segFare");
-		System.out.println("Ç×°ø»ç ÄÚµå: " + info.get("carCode"));
-		System.out.println("Ç×°ø»ç ÀÌ¸§: " + info.get("carDesc"));
-		System.out.println("Ãâ¹ß ³¯Â¥: " + info.get("depDate"));
-		System.out.println("Ãâ¹ß ½Ã°£: " + info.get("depTime"));
-		System.out.println("Ç×°øÆí: " + info.get("mainFlt"));
+		System.out.println("ï¿½×°ï¿½ï¿½ï¿½ ï¿½Úµï¿½: " + info.get("carCode"));
+		System.out.println("ï¿½×°ï¿½ï¿½ï¿½ ï¿½Ì¸ï¿½: " + info.get("carDesc"));
+		System.out.println("ï¿½ï¿½ï¿½ ï¿½ï¿½Â¥: " + info.get("depDate"));
+		System.out.println("ï¿½ï¿½ï¿½ ï¿½Ã°ï¿½: " + info.get("depTime"));
+		System.out.println("ï¿½×°ï¿½ï¿½ï¿½: " + info.get("mainFlt"));
 		
-		//°¡°ÝÁ¤º¸
-		System.out.println("=================°¡°ÝÁ¤º¸================");
+		//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+		System.out.println("=================ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½================");
 		JSONObject json5 = info.getJSONArray("classDetail").getJSONObject(0);
-		System.out.println(Integer.parseInt(json5.get("fareOrigin").toString()) + 1000 + "¿ø");
+		System.out.println(Integer.parseInt(json5.get("fareOrigin").toString()) + 1000 + "ï¿½ï¿½");
 		
-		//Ç×°ø±Ç Á¤º¸
-		System.out.println("================Ç×°ø±ÇÁ¤º¸================");
+		//ï¿½×°ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+		System.out.println("================ï¿½×°ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½================");
 		List<JSONObject> tripInfo = new ArrayList<JSONObject>();
 		System.out.println(infoArr.length());
 		
@@ -57,19 +57,19 @@ public class Test2 {
 		System.out.println(tripInfo.get(0).get("carCode"));
 		System.out.println(tripInfo.get(0).get("mainFlt"));
 		
-		System.out.println("Ç×°ø»ç ÄÚµå");
-		System.out.println("Ç×°ø»ç ÀÌ¸§");
-		System.out.println("Ç×°øÆí");
-		System.out.println("Ãâ¹ß µµ½Ã");
-		System.out.println("Ãâ¹ß µµ½ÃÀÌ¸§");
-		System.out.println("Ãâ¹ß ³¯Â¥");
-		System.out.println("Ãâ¹ß ¿äÀÏ");
-		System.out.println("Ãâ¹ß ½Ã°£");
-		System.out.println("µµÂø µµ½Ã");
-		System.out.println("µµÂø µµ½ÃÀÌ¸§");
-		System.out.println("µµÂø ³¯Â¥");
-		System.out.println("µµÂø ¿äÀÏ");
-		System.out.println("µµÂø ½Ã°£");
+		System.out.println("ï¿½×°ï¿½ï¿½ï¿½ ï¿½Úµï¿½");
+		System.out.println("ï¿½×°ï¿½ï¿½ï¿½ ï¿½Ì¸ï¿½");
+		System.out.println("ï¿½×°ï¿½ï¿½ï¿½");
+		System.out.println("ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½");
+		System.out.println("ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ì¸ï¿½");
+		System.out.println("ï¿½ï¿½ï¿½ ï¿½ï¿½Â¥");
+		System.out.println("ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½");
+		System.out.println("ï¿½ï¿½ï¿½ ï¿½Ã°ï¿½");
+		System.out.println("ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½");
+		System.out.println("ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ì¸ï¿½");
+		System.out.println("ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Â¥");
+		System.out.println("ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½");
+		System.out.println("ï¿½ï¿½ï¿½ï¿½ ï¿½Ã°ï¿½");
 	}
 	
 	private static String readAll(Reader r) throws IOException {

@@ -1,4 +1,4 @@
-package jsoup;
+package crawlingTest;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -44,8 +44,8 @@ public class Test {
 		System.out.println(json3.get("segFare"));
 		System.out.println(json3.get("noOfSeg"));
 		
-		//Ç×°ø±Ç Á¤º¸
-		System.out.println("================Ç×°ø±ÇÁ¤º¸================");
+		//ï¿½×°ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+		System.out.println("================ï¿½×°ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½================");
 		JSONObject json4 = json3.getJSONObject("segFare");
 		System.out.println(json4.toString());
 		System.out.println(json4.get("carCode"));
@@ -54,8 +54,8 @@ public class Test {
 		System.out.println(json4.get("depTime"));
 		System.out.println(json4.get("mainFlt"));
 		
-		//°¡°ÝÁ¤º¸
-		System.out.println("================°¡°ÝÁ¤º¸================");
+		//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+		System.out.println("================ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½================");
 		JSONObject json5 = json4.getJSONArray("classDetail").getJSONObject(0);
 		System.out.println(json5.toString());
 		System.out.println(Integer.parseInt(json5.get("fareOrigin").toString()) + 1000);

@@ -1,4 +1,4 @@
-package jsoup;
+package crawlingTest;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -25,7 +25,7 @@ public class Test3 {
 		
 		String iptUrl = 
 				"http://domair.interpark.com/api/booking/airJourney.do?"
-				+ "format=json&dep=GMP&arr=CJU&depDate=20190831&"
+				+ "format=json&dep=GMP&arr=CJU&depDate=20190901&"
 				+ "adt=1&chd=0&inf=0&tripDivi=0&airlineCode=KE&siteCode=";
 		
 		//정보 추출
@@ -44,13 +44,13 @@ public class Test3 {
 		System.out.println("도착날짜: " + info.get("arrDate"));
 		System.out.println("도착시간: " + info.get("arrTime"));
 		
-		//��������
-		System.out.println("=================��������================");
+		//가격정보 추출
+		System.out.println("=================가격정보 추출================");
 		JSONObject json5 = info.getJSONArray("classDetail").getJSONObject(0);
-		System.out.println(Integer.parseInt(json5.get("fareOrigin").toString()) + 1000 + "��");
+		System.out.println(Integer.parseInt(json5.get("fareOrigin").toString()) + 1000 + "원");
 		
-		//�װ��� ����
-		System.out.println("================�װ�������================");
+		//항공권정보 추출
+		System.out.println("================항공원정보 추출================");
 		List<JSONObject> tripInfo = new ArrayList<JSONObject>();
 		System.out.println(infoArr.length());
 		

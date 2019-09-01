@@ -63,11 +63,11 @@
          <version>3.4.5</version>
       </dependency>
       
-      <dependency>
+ <!--      <dependency>
          <groupId>oracle</groupId>
          <artifactId>ojdbc6</artifactId>
          <version>11.2</version>
-      </dependency>
+      </dependency> -->
       
       
       <!-- Logging -->
@@ -163,6 +163,29 @@
       
           
    </dependencies>
+   <repositories>
+
+	<repository>
+
+		<id>Spring Plugins</id>
+
+		<url>http://repo.spring.io/plugins-release/</url>
+
+	</repository>
+	
+	<repository>
+    <id>oracle</id>
+    <name>ORACLE JDBC Repository</name>
+    <url>http://maven.jahia.org/maven2</url>
+	</repository>
+	
+	<repository>
+		<id>mesir-repo</id>
+		<url>https://code.lds.org/nexus/content/groups/main-repo</url>
+	</repository>
+
+</repositories>
+
     <build>
         <plugins>
             <plugin>
@@ -199,6 +222,7 @@
                     <mainClass>org.test.int1.Main</mainClass>
                 </configuration>
             </plugin>
+            
         </plugins>
     </build>
 </project>

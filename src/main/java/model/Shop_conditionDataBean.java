@@ -1,16 +1,17 @@
 package model;
 
 public class Shop_conditionDataBean {
-	int id;
-	int com_code;
-	int scon_no;
-	String main_cat;
-	String sub_cat;
-	String soon_title;
-	String brand;
-	String product_name;
-	String wish_price;
-	String reg_date;
+	private int id;
+	private int com_code;
+	private int scon_no;
+	private String boardid;
+	private String main_cat;
+	private String sub_cat;
+	private String scon_title;
+	private String brand;
+	private String product_name;
+	private String wish_price;
+	private String reg_date;
 	public int getId() {
 		return id;
 	}
@@ -29,6 +30,12 @@ public class Shop_conditionDataBean {
 	public void setScon_no(int scon_no) {
 		this.scon_no = scon_no;
 	}
+	public String getBoardid() {
+		return boardid;
+	}
+	public void setBoardid(String boardid) {
+		this.boardid = boardid;
+	}
 	public String getMain_cat() {
 		return main_cat;
 	}
@@ -41,11 +48,11 @@ public class Shop_conditionDataBean {
 	public void setSub_cat(String sub_cat) {
 		this.sub_cat = sub_cat;
 	}
-	public String getSoon_title() {
-		return soon_title;
+	public String getScon_title() {
+		return scon_title;
 	}
-	public void setSoon_title(String soon_title) {
-		this.soon_title = soon_title;
+	public void setScon_title(String scon_title) {
+		this.scon_title = scon_title;
 	}
 	public String getBrand() {
 		return brand;
@@ -71,6 +78,10 @@ public class Shop_conditionDataBean {
 	public void setReg_date(String reg_date) {
 		this.reg_date = reg_date;
 	}
+	
+	
+	
+	
 	
 	
 	

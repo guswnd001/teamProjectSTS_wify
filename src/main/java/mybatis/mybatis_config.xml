@@ -4,7 +4,7 @@
 <configuration>
 
 	<typeAliases>
-		<typeAlias type="model.Theater" alias="Theater" />
+		<typeAlias type="model.Shop_conditionDataBean" alias="ShopCondition"/>
 	</typeAliases>
 
 

@@ -3,13 +3,8 @@
 
 <mapper namespace="mybatis.mybatis_mapper">
 
-
-
-
-
-
 <!-- 가영 시작 -->
-	<select id="theater_information" resultType="TheaterInfo">
+	<!-- <select id="theater_information" resultType="TheaterInfo">
 		select REGION_CODE,REGION_NAME,THEATER_CODE,THEATER_NAME,EXIST_4D,EXIST_IMAX,EXIST_NORMAL from theater_information
 	</select>
 
@@ -27,9 +22,40 @@
 
 	<select id="theater_condition" resultType="TheaterCondition">
 		select * from theater_condition where target_date >= now()
-	</select>
+	</select> -->
 <!-- 가영 끝 -->
 
+<!-- 주호 시작 -->
+	<select id="insertArticle_new" resultType="int">
+	select nvl(max(scon_no), 0)
+	from shopping_condition
+	</select>
 
 
+	<insert id="insertArticle_insert" parameterType="ShopCondition">
+		insert into
+		shopping_condition (scon_no, main_cat, sub_cat, scon_title, brand, product_name, wish_price, reg_date, boardid)values
+		(#{scon_no},#{main_cat} ,#{sub_cat},#{scon_title},#{brand},#{product_name},
+		#{wish_price},sysdate, #{boardid})
+	</insert>
+	
+	<select id="getArticle" parameterType="hashmap" resultType="ShopCondition">
+	select * from shopping_condition where scon_no = #{scon_no}
+	</select>
+	
+	<select id="getArticles" parameterType="hashmap" resultType="ShopCondition">
+	select * from (select rownum rnum, a.* from(select scon_no, main_cat, sub_cat, scon_title, brand, product_name, wish_price, reg_date, boardid 
+	 from shopping_condition where boardid = #{boardid} order by scon_no)a)
+	where rnum between #{start} and #{end}
+	</select>
+	
+	<select id="getArticleCount" parameterType="string" resultType="int">
+	select nvl(count(*), 0) from shopping_condition
+	WHERE boardid = #{boardid}
+	</select>
+	
+	<select id="delete" parameterType="hashmap">
+		delete from shopping_condition where scon_no = #{scon_no}
+	</select>
+<!-- 주호 끝 -->
 </mapper>

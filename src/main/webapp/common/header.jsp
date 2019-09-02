@@ -262,7 +262,7 @@ ${project = pageContext.request.contextPath ; ''}
             <ul class="sub">
               <li><a href="${project}/Dashio/movie.jsp">영화</a></li>
               <li><a href="${project}/Dashio/air.jsp">항공</a></li>
-              <li><a href="${project}/Dashio/shopping">쇼핑</a></li>
+              <li><a href="${project}/Dashio/shopping?boardid=3">쇼핑</a></li>
             </ul>
           </li>
           <li class="sub-menu">

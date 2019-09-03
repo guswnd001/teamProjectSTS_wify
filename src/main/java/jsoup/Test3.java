@@ -18,7 +18,7 @@ import org.jsoup.nodes.Document;
 import org.omg.PortableInterceptor.INACTIVE;
 
 import model.DepInfo;
-import model.Product;
+import model.Crawling_product;
 
 public class Test3 {
 	public static void main(String[] args) throws IOException, JSONException {
@@ -28,29 +28,29 @@ public class Test3 {
 				+ "format=json&dep=GMP&arr=CJU&depDate=20190831&"
 				+ "adt=1&chd=0&inf=0&tripDivi=0&airlineCode=KE&siteCode=";
 		
-		//Á¤º¸ ÃßÃâ
-		System.out.println("================Á¤º¸ÃßÃâ================");
+		//ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+		System.out.println("================ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½================");
 		JSONArray infoArr = readJsonFromUrl(iptUrl)
 								.getJSONObject("replyAvailFare")
 								.getJSONArray("availFareSet");
 		JSONObject info = infoArr
 							.getJSONObject(0)
 							.getJSONObject("segFare");
-		System.out.println("Ç×°ø»ç ÄÚµå: " + info.get("carCode"));
-		System.out.println("Ç×°ø»ç ÀÌ¸§: " + info.get("carDesc"));
-		System.out.println("Ç×°øÆí: " + info.get("mainFlt"));
-		System.out.println("Ãâ¹ß ³¯Â¥: " + info.get("depDate"));
-		System.out.println("Ãâ¹ß ½Ã°£: " + info.get("depTime"));
-		System.out.println("µµÂø ³¯Â¥: " + info.get("arrDate"));
-		System.out.println("µµÂø ½Ã°£: " + info.get("arrTime"));
+		System.out.println("ï¿½×°ï¿½ï¿½ï¿½ ï¿½Úµï¿½: " + info.get("carCode"));
+		System.out.println("ï¿½×°ï¿½ï¿½ï¿½ ï¿½Ì¸ï¿½: " + info.get("carDesc"));
+		System.out.println("ï¿½×°ï¿½ï¿½ï¿½: " + info.get("mainFlt"));
+		System.out.println("ï¿½ï¿½ï¿½ ï¿½ï¿½Â¥: " + info.get("depDate"));
+		System.out.println("ï¿½ï¿½ï¿½ ï¿½Ã°ï¿½: " + info.get("depTime"));
+		System.out.println("ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Â¥: " + info.get("arrDate"));
+		System.out.println("ï¿½ï¿½ï¿½ï¿½ ï¿½Ã°ï¿½: " + info.get("arrTime"));
 		
-		//°¡°ÝÁ¤º¸
-		System.out.println("=================°¡°ÝÁ¤º¸================");
+		//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+		System.out.println("=================ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½================");
 		JSONObject json5 = info.getJSONArray("classDetail").getJSONObject(0);
-		System.out.println(Integer.parseInt(json5.get("fareOrigin").toString()) + 1000 + "¿ø");
+		System.out.println(Integer.parseInt(json5.get("fareOrigin").toString()) + 1000 + "ï¿½ï¿½");
 		
-		//Ç×°ø±Ç Á¤º¸
-		System.out.println("================Ç×°ø±ÇÁ¤º¸================");
+		//ï¿½×°ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+		System.out.println("================ï¿½×°ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½================");
 		List<JSONObject> tripInfo = new ArrayList<JSONObject>();
 		System.out.println(infoArr.length());
 		

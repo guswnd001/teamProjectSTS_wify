@@ -7,7 +7,7 @@ import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-
+import model.Crawling_product;
 import model.Shop_conditionDataBean;
 import mybatis.MyBatisConnector;
 
@@ -117,5 +117,72 @@ public class ShopDBBeanMybatis {
 		}
 		return x;
 	}
+	
+	//////////////////////////////크롤링 마이바티스//////////////////////////////////////
+	public int getCrawlingCount(String boardid) throws Exception {
+		SqlSession sqlSession=mybatisConnector.sqlSession();
+		System.out.println("getCrawlingCount===old");
+		try {
+			return sqlSession.selectOne(namespace + ".getCrawlingCount", boardid);
+		} finally {
+			sqlSession.close();
+		}
+	}
+	
+	public void insertCrawling(Crawling_product crawling, String boardid) throws Exception {
+		SqlSession sqlSession=mybatisConnector.sqlSession();
+		
+		/*
+		 * int num = article.getNum(); int ref = article.getRef(); int re_step =
+		 * article.getRe_step(); int re_level = article.getRe_level();
+		 */
+		try {			
+			HashMap map = new HashMap();
+			int num = sqlSession.selectOne(namespace + ".crawlingInsertArticle_new");
+			if (num != 0)				
+				num = num + 1;
+			else num = 1;
+			/*
+			 * if (num != 0) { map.put("ref", ref); map.put("re_step", re_step);
+			 * sqlSession.update(namespace + ".insertArticle_update", map); re_step =
+			 * re_step + 1; re_level = re_level + 1; } else {ref = number; re_step =
+			 * 0;re_level = 0; }
+			 */	
+			
+			crawling.setNum(num);
+			crawling.setTitle(crawling.getTitle());
+			crawling.setPrice(crawling.getPrice());
+			crawling.setBrand(crawling.getBrand());
+			crawling.setBoardid(boardid);
+			System.out.println("insert:" + crawling);
+			int result = sqlSession.insert(namespace + ".crawlingInsertArticle_insert", crawling);
+			System.out.println("insert crawling 0k:" + result);
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			System.out.println(1);
+			sqlSession.commit();		
+			sqlSession.close();		}
+	}
+	
+	public List getCrawlings(int start, int end, String boardid) throws Exception {
+		SqlSession sqlSession=mybatisConnector.sqlSession();
+		System.out.println("getCrawlings===old");
+		
+		HashMap map = new HashMap();
+		map.put("start", start);
+		map.put("end", end);
+		map.put("boardid", boardid);
+		
+		System.out.println(map);
+		try {
+			return sqlSession.selectList(namespace + ".getCrawlings", map);
+		} finally {
+			sqlSession.close();
+		}
+	}
+	
+	
+	
 
 }

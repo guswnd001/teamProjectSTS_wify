@@ -5,6 +5,7 @@
 
 	<typeAliases>
 		<typeAlias type="model.Shop_conditionDataBean" alias="ShopCondition"/>
+		<typeAlias type="model.Crawling_product" alias="CrawlingProduct"/>
 	</typeAliases>
 
 

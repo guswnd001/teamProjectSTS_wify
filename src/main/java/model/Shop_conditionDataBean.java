@@ -78,6 +78,13 @@ public class Shop_conditionDataBean {
 	public void setReg_date(String reg_date) {
 		this.reg_date = reg_date;
 	}
+	@Override
+	public String toString() {
+		return "Shop_conditionDataBean [id=" + id + ", com_code=" + com_code + ", scon_no=" + scon_no + ", boardid="
+				+ boardid + ", main_cat=" + main_cat + ", sub_cat=" + sub_cat + ", scon_title=" + scon_title
+				+ ", brand=" + brand + ", product_name=" + product_name + ", wish_price=" + wish_price + ", reg_date="
+				+ reg_date + "]";
+	}
 	
 	
 	

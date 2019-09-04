@@ -1,11 +1,13 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+${project = pageContext.request.contextPath ; ''}
 <section id="main-content">
 <section class="wrapper">
 <div class="container">
+
 <h3>상품 검색</h3>
-<form action="<%=request.getContextPath()%>/Dashio/shoppingPro">
-<input type="hidden" name="scon_no" value="${scon_no}">
+<form action="${project }/Dashio/search?pageNum=${pageNum}">
+
 <h5>카테고리</h5>
   <div class="form-group">
     <select class="form-control" id="selectDemoSize" name="main_cat">
@@ -68,7 +70,7 @@
 <button type="submit" class="btn btn-success ">상품 검색</button>
 <button type="reset" class="btn btn-success ">다시입력</button>
 <button type="button" class="btn btn-success "
- OnClick="window.location='<%=request.getContextPath()%>/Dashio/sconList?pageNum=${pageNum }'">나의 조건 목록 보기</button>
+ OnClick="window.location='${project }/Dashio/sconList?pageNum=${pageNum }'">나의 조건 목록 보기</button>
 </form>
 </div>
 </section>

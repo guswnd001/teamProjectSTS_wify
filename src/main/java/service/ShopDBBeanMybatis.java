@@ -23,11 +23,11 @@ public class ShopDBBeanMybatis {
 	public Shop_conditionDataBean getArticle(int num, String boardid) throws Exception {
 		SqlSession sqlSession = mybatisConnector.sqlSession();
 		HashMap map = new HashMap();
-		map.put("num", num);
+		map.put("scon_no", num);
 		map.put("boardid", boardid);
 		Shop_conditionDataBean article = new Shop_conditionDataBean();
 		try {
-			int result = sqlSession.update(namespace + ".update_readcount", map);
+//			int result = sqlSession.update(namespace + ".update_readcount", map);
 			article = (Shop_conditionDataBean) sqlSession.selectOne(namespace + ".getArticle", map);
 		} finally {
 			sqlSession.commit();

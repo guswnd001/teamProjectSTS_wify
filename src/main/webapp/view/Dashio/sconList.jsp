@@ -4,7 +4,7 @@
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
-
+${project = pageContext.request.contextPath ; ''}
 	<div class="w3-container">
 		
 		<p class="w3-right w3-padding-right-large">
@@ -80,16 +80,16 @@
 			<div class="w3-center">
 				<c:if test="${ startPage>bottomLine}">
 
-					<a href="list?pageNum=${startPage - bottomLine}">[이전]</a>
+					<a href="<%=request.getContextPath() %>/Dashio/sconlist?pageNum=${startPage - bottomLine}">[이전]</a>
 				</c:if>
 				<c:forEach var="i" begin="${startPage }" end="${endPage }">
 
-					<a href="list?pageNum=${i}">[${i}] </a>
+					<a href="<%=request.getContextPath() %>/Dashio/sconlist?pageNum=${i}">[${i}] </a>
 				</c:forEach>
 
 				<c:if test="${ endPage<pageCount}">
 
-					<a href="list?pageNum=${startPage + bottomLine}">[다음]</a>
+					<a href="<%=request.getContextPath() %>/Dashio/sconlist?pageNum=${startPage + bottomLine}">[다음]</a>
 				</c:if>
 
 

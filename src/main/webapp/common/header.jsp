@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+${project = pageContext.request.contextPath ; ''}
 <!DOCTYPE html>
 <html>
 <head>
@@ -11,7 +12,6 @@
 <meta name="keyword"
 	content="Dashboard, Bootstrap, Admin, Template, Theme, Responsive, Fluid, Retina">
 <title>Dashio - Bootstrap Admin Template</title>
-${project = pageContext.request.contextPath ; ''}
 <!-- Favicons -->
 <link href="${project}/Dashio/img/favicon.png" rel="icon">
 <link href="${project}/Dashio/img/apple-touch-icon.png" rel="apple-touch-icon">

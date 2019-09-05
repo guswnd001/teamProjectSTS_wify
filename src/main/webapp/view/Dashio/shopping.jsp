@@ -11,7 +11,7 @@ ${project = pageContext.request.contextPath ; ''}
 <h5>카테고리</h5>
   <div class="form-group">
     <select class="form-control" id="selectDemoSize" name="main_cat">
-      <option>주카테고리</option>
+      <option value="" selected disabled hidden>주카테고리</option>
       <option>핸드폰</option>
       <option>카메라</option>
       <option>음향기기</option>
@@ -19,7 +19,7 @@ ${project = pageContext.request.contextPath ; ''}
   </div>
   <div class="form-group">
     <select class="form-control" id="selectDemoSize" name="sub_cat">
-      <option>보조카테고리</option>
+      <option value="" selected disabled hidden>보조카테고리</option>
       <option>블루투스 이어폰</option>
       <option>홈씨어터</option>
       <option>오디오</option>
@@ -35,7 +35,7 @@ ${project = pageContext.request.contextPath ; ''}
   </div>
   <div class="form-group">
     <select class="form-control" id="selectDemoSize" name="brand">
-      <option>Brand</option>
+      <option value="" selected disabled hidden>브랜드</option>
       <option>LG전자</option>
       <option>갤럭시</option>
       <option>제이비엘</option>

@@ -103,7 +103,7 @@ public class ShoppingController {
            for(int i = 0 ; i < element.select("span.title").size() ; i++) {
               if(element.select("span.title").get(i).text().startsWith("[") == true) {
                 product.add(new Crawling_product(element.select("span.title").get(i).text(),
-                						element.select("div.price_info a").get(i).text().substring(0,element.select("div.price_info a").get(i).text().length()-1),
+                						element.select("div.price_info a").get(i).text().substring(0,element.select("div.price_info a").get(i).text().length()),
                 						element.select("span.title").get(i).text().split("]")[0].substring(1)));              
               }else {
                  continue;

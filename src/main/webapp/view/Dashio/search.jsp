@@ -4,6 +4,7 @@
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
 
 	<div class="w3-container">
 		
@@ -44,16 +45,20 @@
 									<th></th>  -->
 								</tr>
 							</thead>
+							<!-- (fn:length(sc.wish_price) == fn:length(cl.price)) and (fn:substring(sc.wish_price, 0, 1) == fn:substring(cl.price, 0, 1)) -->
+							<c:set var="loop_flag" value="false" />
 							<tbody>
 								<c:forEach var="cl" items="${crawlingList}">
-									<c:if test="${sc.brand == cl.brand }">
-									<tr>
-										<td>${cl.num }</td>
-										<td>${cl.title }</td>
-										<td>${cl.price }</td>
-										<td>${cl.brand }</td>
-									</tr>
-									</c:if>
+									<c:forTokens var="title" items="${cl.title }" delims=" ">																											
+										<c:if test="${sc.product_name == title }">
+											<tr>
+												<td>${cl.num }</td>
+												<td>${cl.title }</td>
+												<td>${cl.price }</td>
+												<td>${cl.brand }</td>
+											</tr>
+										</c:if>																		
+									</c:forTokens>
 								</c:forEach>
 							</tbody>
 						</table>

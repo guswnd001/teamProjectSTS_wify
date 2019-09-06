@@ -11,10 +11,8 @@ http://www.springframework.org/schema/mvc
 http://www.springframework.org/schema/mvc/spring-mvc.xsd">
    <mvc:annotation-driven />
 
-
    <mvc:view-controller path="/index" view-name="index" />
-
-
+   
    <bean id="viewResolver"
       class="org.springframework.web.servlet.view.InternalResourceViewResolver">
       <property name="prefix" value="/view/" />
@@ -32,5 +30,13 @@ http://www.springframework.org/schema/mvc/spring-mvc.xsd">
    
    <bean class="mybatis.MyBatisConnector">
    </bean>
+   
+	<mvc:interceptors>
+		<mvc:interceptor>
+			<mvc:mapping path="/board/*"/>
+			<mvc:mapping path="/theater/*"/>
+			<bean class="filter.LoginCheck"/>
+		</mvc:interceptor>
+	</mvc:interceptors>
 
 </beans>

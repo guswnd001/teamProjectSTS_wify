@@ -3,33 +3,111 @@
 
 <mapper namespace="mybatis.mybatis_mapper">
 
+	<!-- 가영 시작 -->
 
-
-
-
-
-<!-- 가영 시작 -->
 	<select id="theater_information" resultType="TheaterInfo">
 		select REGION_CODE,REGION_NAME,THEATER_CODE,THEATER_NAME,EXIST_4D,EXIST_IMAX,EXIST_NORMAL from theater_information
+	</select>
+	
+	<select id="theaterInfo_region" resultType="hashmap">
+		select distinct REGION_CODE,REGION_NAME from theater_information
+	</select>
+	
+	<select id="theaterInfo_theater" parameterType="String" resultType="hashmap">
+		select THEATER_CODE,THEATER_NAME from theater_information where REGION_CODE = #{REGION_CODE}
+	</select>
+	
+	<select id="theaterInfo_room" parameterType="String" resultType="hashmap">
+		select EXIST_4D,EXIST_IMAX,EXIST_NORMAL from theater_information where THEATER_CODE = #{THEATER_CODE}
+	</select>
+	
+	<select id="theaterInfo_region_name" parameterType="String" resultType="String">
+		select distinct REGION_NAME from theater_information where REGION_CODE = #{REGION_CODE}
+	</select>
+
+	<select id="theaterInfo_theater_name" parameterType="String" resultType="String">
+		select THEATER_NAME from theater_information where THEATER_CODE = #{THEATER_CODE}
 	</select>
 
 
 
 
+
+
+
+
 	<insert id="insertTheaterCondition" parameterType="TheaterCondition" >
-		insert into theater_condition values (num, id, movie_name, region_code, theater_code, room, target_date, sysdate, sysdate)
+		insert into theater_condition 
+		(num, condition_name, id, movie_name, region_code, region_name, theater_code, theater_name, room, target_date, reg_date)
+		values 
+		(#{num}, #{condition_name}, #{id}, #{movie_name}, #{region_code}, #{region_name}, #{theater_code}, #{theater_name}, #{room}, #{target_date}, sysdate)
 	</insert>
 	
 	<select id="lastNum" resultType="int">
 		select max(num) from theater_condition
 	</select>
 
+	<delete id="deleteTheaterCondition" parameterType="int">
+		delete from theater_condition where num = #{num}
+	</delete>
+
+
 
 	<select id="theater_condition" resultType="TheaterCondition">
-		select * from theater_condition where target_date >= now()
+		select * from theater_condition
 	</select>
-<!-- 가영 끝 -->
+	
+	<select id="theater_conditionById" parameterType="String" resultType="TheaterCondition">
+		select * from theater_condition where id=#{id} order by num
+	</select>
+	
+	<select id="theater_condition_today" resultType="TheaterCondition">
+		select * from theater_condition where target_date >= sysdate order by num
+	</select>
+	
+	<select id="theater_conditionByNum" parameterType="int" resultType="TheaterCondition">
+		select * from theater_condition where num=#{num}
+	</select>
+	
+	<select id="theater_conditionExistById" parameterType="String" resultType="int">
+		select count(*) from theater_condition where id=#{id}
+	</select>
 
+	<!-- 가영 끝 -->
+	
+	
+	
+	<!-- 상희 시작 -->
 
+	<select id="sh_ReadCount" resultType="int">
+	select nvl(count(*),0) from team_qna
+	</select>
+	
+	<select id="QnAList" parameterType="hashmap" resultType="Board">
+	select * from (select rownum  rnum, a.* from (select num, cat_name, writer,
+	subject, password, reg_date, readcount, ref, re_step, re_level, content
+	from team_qna order by ref desc, re_step) a ) where rnum between #{start} and #{end}
+	</select>
+	
+	<!-- 로그인 -->
+	<select id="login_idCheck" parameterType="String" resultType="String">
+		select id from team_member where id=#{id}
+	</select>
+	
+	<select id="login_pwCheck" parameterType="hashmap" resultType="String">
+		select password from team_member where id=#{id} and password=#{password}
+	</select>
+
+	<!-- 회원가입 -->
+	<insert id="sh_insert" parameterType="Member">
+	insert into team_member values (#{id}, #{password}, #{gender}, #{name}, #{email}, #{phone})
+	</insert>
+	
+	<!-- 상희 끝 -->
+	
+	
+	
+	
+	
 
 </mapper>

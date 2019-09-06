@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -27,6 +28,8 @@ ${project = pageContext.request.contextPath ; ''}
 <script src="${project}/Dashio/lib/jquery/jquery.min.js"></script>
 <script src="${project}/Dashio/lib/bootstrap/js/bootstrap.min.js"></script>
 <script src="${project}/Dashio/lib/jquery-ui-1.9.2.custom.min.js"></script>
+
+
 <script src="${project}/Dashio/lib/jquery.ui.touch-punch.min.js"></script>
 <script class="include" type="text/javascript"
 	src="${project}/Dashio/lib/jquery.dcjqaccordion.2.7.js"></script>
@@ -34,7 +37,21 @@ ${project = pageContext.request.contextPath ; ''}
 <script src="${project}/Dashio/lib/jquery.nicescroll.js" type="text/javascript"></script>
 <!--common script for all pages-->
 <script src="${project}/Dashio/lib/common-scripts.js"></script>
+<script src="${project}/Dashio/lib/advanced-form-components.js"></script>
 
+<!-- 가영 시작 -->
+<link rel="stylesheet" type="text/css" href="${project}/Dashio/lib/bootstrap-datepicker/css/datepicker.css" />
+<script type="text/javascript" src="${project}/Dashio/lib/bootstrap-datepicker/js/bootstrap-datepicker.js"></script>
+<!-- 가영 끝-->
+
+<!-- 데이터 테이블 -->
+<link href="${project}/Dashio/lib/advanced-datatable/css/demo_page.css" rel="stylesheet" />
+  <link href="${project}/Dashio/lib/advanced-datatable/css/demo_table.css" rel="stylesheet" />
+  <link rel="stylesheet" href="${project}/Dashio/lib/advanced-datatable/css/DT_bootstrap.css" />
+<%-- <script type="text/javascript" language="javascript" src="${project}/Dashio/lib/advanced-datatable/js/jquery.js"></script> --%>
+<script type="text/javascript" language="javascript" src="${project}/Dashio/lib/advanced-datatable/js/jquery.dataTables.js"></script>
+  <script type="text/javascript" src="${project}/Dashio/lib/advanced-datatable/js/DT_bootstrap.js"></script>
+<!-- 데이터 테이블 -->
 
 </head>
 
@@ -137,7 +154,7 @@ ${project = pageContext.request.contextPath ; ''}
               </li>
               <li>
                 <a href="index.html#">
-                  <span class="photo"><img alt="avatar" src="img/ui-zac.jpg"></span>
+                  <span class="photo"><img alt="avatar" src="${project}/Dashio/img/ui-zac.jpg"></span>
                   <span class="subject">
                   <span class="from">Zac Snider</span>
                   <span class="time">Just now</span>
@@ -149,7 +166,7 @@ ${project = pageContext.request.contextPath ; ''}
               </li>
               <li>
                 <a href="index.html#">
-                  <span class="photo"><img alt="avatar" src="img/ui-divya.jpg"></span>
+                  <span class="photo"><img alt="avatar" src="${project}/Dashio/img/ui-divya.jpg"></span>
                   <span class="subject">
                   <span class="from">Divya Manian</span>
                   <span class="time">40 mins.</span>
@@ -161,7 +178,7 @@ ${project = pageContext.request.contextPath ; ''}
               </li>
               <li>
                 <a href="index.html#">
-                  <span class="photo"><img alt="avatar" src="img/ui-danro.jpg"></span>
+                  <span class="photo"><img alt="avatar" src="${project}/Dashio/img/ui-danro.jpg"></span>
                   <span class="subject">
                   <span class="from">Dan Rogers</span>
                   <span class="time">2 hrs.</span>
@@ -173,7 +190,7 @@ ${project = pageContext.request.contextPath ; ''}
               </li>
               <li>
                 <a href="index.html#">
-                  <span class="photo"><img alt="avatar" src="img/ui-sherman.jpg"></span>
+                  <span class="photo"><img alt="avatar" src="${project}/Dashio/img/ui-sherman.jpg"></span>
                   <span class="subject">
                   <span class="from">Dj Sherman</span>
                   <span class="time">4 hrs.</span>
@@ -239,7 +256,17 @@ ${project = pageContext.request.contextPath ; ''}
       </div>
       <div class="top-menu">
         <ul class="nav pull-right top-menu">
-          <li><a class="logout" href="login.html">Logout</a></li>
+          <!-- 상희 로그인 시작 -->
+          			<c:if test="${ id == null}">
+          <li><a class="logout" href="<%=request.getContextPath()%>/member/login">로그인</a></li>
+          <li><a class="logout" href="<%=request.getContextPath()%>/member/join">회원가입</a></li>
+					</c:if>
+					<c:if test="${ id != null}">						
+		  <li><a class="logout" href="<%=request.getContextPath()%>/member/logout">로그아웃</a></li>
+		  <li><a class="logout" href="<%=request.getContextPath()%>/member/update">회원정보변경</a></li>
+		  <li><a class="logout" href="<%=request.getContextPath()%>/member/delete">회원탈퇴</a></li>		
+					</c:if>
+		<!-- 상희 로그인 끝 -->
         </ul>
       </div>
     </header>
@@ -252,25 +279,21 @@ ${project = pageContext.request.contextPath ; ''}
       <div id="sidebar" class="nav-collapse ">
         <!-- sidebar menu start-->
         <ul class="sidebar-menu" id="nav-accordion">
-          <p class="centered"><a href="profile.html"><img src="img/ui-sam.jpg" class="img-circle" width="80"></a></p>
-          <h5 class="centered">Sam Soffes</h5>
+          <p class="centered"><a href="profile.html"><img src="${project}/Dashio/img/ui-sam.jpg" class="img-circle" width="80"></a></p>
+          <!-- 상희 로그인상태 id 출력 시작 -->
+          <h5 class="centered"><p>${id}</p></h5>
+          <!-- 상희 로그인상태 id 출력 끝 -->
           <li class="mt">
-            <a href="index.html">
+            <a href="${project }/theater/regFirst">
               <i class="fa fa-dashboard"></i>
-              <span>Dashboard</span>
+              <span>등록페이지</span>
               </a>
           </li>
           <li class="sub-menu">
-            <a href="javascript:;">
+            <a href="${project }/theater/list">
               <i class="fa fa-desktop"></i>
-              <span>UI Elements</span>
+              <span>리스트</span>
               </a>
-            <ul class="sub">
-              <li><a href="general.html">General</a></li>
-              <li><a href="buttons.html">Buttons</a></li>
-              <li><a href="panels.html">Panels</a></li>
-              <li><a href="font_awesome.html">Font Awesome</a></li>
-            </ul>
           </li>
           <li class="sub-menu">
             <a href="javascript:;">
@@ -288,7 +311,7 @@ ${project = pageContext.request.contextPath ; ''}
             </ul>
           </li>
           <li class="sub-menu">
-            <a href="javascript:;">
+            <a class="active" href="javascript:;">
               <i class="fa fa-book"></i>
               <span>Extra Pages</span>
               </a>
@@ -368,4 +391,4 @@ ${project = pageContext.request.contextPath ; ''}
     </aside>
     <!--sidebar end-->
 <section id="main-content">
-<section class="wrapper">
+<section class="wrapper site-min-height">

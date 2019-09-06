@@ -4,7 +4,10 @@
 <configuration>
 
 	<typeAliases>
-		<typeAlias type="model.Theater" alias="Theater" />
+		<typeAlias type="model.TheaterInfo" alias="TheaterInfo" />
+		<typeAlias type="model.TheaterCondition" alias="TheaterCondition"/>
+		<typeAlias type="model.TeamBoardDataBean" alias="Board" />
+		<typeAlias type="model.TeamMemberDataBean" alias="Member" />
 	</typeAliases>
 
 

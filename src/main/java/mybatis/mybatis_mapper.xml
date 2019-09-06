@@ -78,32 +78,93 @@
 	
 	
 	<!-- 상희 시작 -->
+   
+   <select id="sh_ReadCount" resultType="int">
+   select nvl(count(*),0) from team_qna
+   </select>
 
-	<select id="sh_ReadCount" resultType="int">
-	select nvl(count(*),0) from team_qna
-	</select>
-	
-	<select id="QnAList" parameterType="hashmap" resultType="Board">
-	select * from (select rownum  rnum, a.* from (select num, cat_name, writer,
-	subject, password, reg_date, readcount, ref, re_step, re_level, content
-	from team_qna order by ref desc, re_step) a ) where rnum between #{start} and #{end}
-	</select>
-	
-	<!-- 로그인 -->
-	<select id="login_idCheck" parameterType="String" resultType="String">
-		select id from team_member where id=#{id}
-	</select>
-	
-	<select id="login_pwCheck" parameterType="hashmap" resultType="String">
-		select password from team_member where id=#{id} and password=#{password}
-	</select>
+   <select id="QnAList" parameterType="hashmap" resultType="board">
+   select * from (select rownum  rnum, a.* from (select num, cat_name, writer,
+   subject, password, reg_date, readcount, ref, re_step, re_level, content
+   from team_qna order by ref desc, re_step) a ) where rnum between #{start} and #{end}
+   </select>
 
-	<!-- 회원가입 -->
-	<insert id="sh_insert" parameterType="Member">
-	insert into team_member values (#{id}, #{password}, #{gender}, #{name}, #{email}, #{phone})
-	</insert>
+   <select id="getQnA" parameterType="hashmap" resultType="Board">
+   select * from team_QnA where num = #{num}
+   </select>
+
+   
+   <select id="insertQnA_new" resultType="int">
+   select nvl(max(num),0) from team_QnA   
+   </select>
+   
+      
+   <update id="insertQnA_update" parameterType="hashmap">
+   update team_QnA set re_step=re_step+1 where ref= #{ref} and re_step #{re_step}
+   </update>
+ 
+   <insert id="insertQnA_insert" parameterType="Board">
+   insert into team_QnA values(#{num}, #{cat_name}, #{writer}, #{subject}, 
+   #{password}, sysdate, 0, #{ref}, #{re_step}, #{re_level}, #{content})
+   </insert>
+   
+   <select id="update_passwrod" parameterType="hashmap"
+      resultType="string">
+      select password from team_QnA where num =#{num}
+      </select>
+   
+   
+
+   
+   <update id="QnAupdate_readcount" parameterType="hashmap">
+   update team_QnA set
+      readcount=readcount+1 where num = #{num}
+   </update>
+   
+    <update id="QnAup_update" parameterType="hashmap">
+    update team_QnA set
+    subject=#{subject},
+    content=#{content}
+    where num = #{num}
+    </update>
+   
+   <select id="QnAdelete" parameterType="hashmap">
+   delete From team_QnA where num= #{num}
+   </select> 
+
+   <!-- 로그인 -->
+   <select id="login_idCheck" parameterType="String" resultType="String">
+      select id from team_member where id=#{id}
+   </select>
+   
+   <select id="login_pwCheck" parameterType="hashmap" resultType="String">
+      select password from team_member where id=#{id} and password=#{password}
+   </select>
+   
+   <!-- 회원가입 -->
+   <insert id="sh_insert" parameterType="Member">
+   insert into team_member values (#{id}, #{password}, #{gender}, #{name}, #{email}, #{phone})
+   </insert>
+      
+   
+   <!-- 회원정보 페이지 -->
+   <select id="memPage" parameterType="hashmap" resultType="Member">
+   select * from team_member where id = #{id}
+   </select>
+
+   
+   <!-- 회원정보 수정 -->
+
 	
 	<!-- 상희 끝 -->
+	
+	
+	
+	
+	
+	
+	
+	
 	
 	<!-- 주호 시작 -->
 	<select id="insertArticle_new" resultType="int">

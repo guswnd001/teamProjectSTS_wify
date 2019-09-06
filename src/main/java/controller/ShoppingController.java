@@ -58,7 +58,13 @@ public class ShoppingController {
 		ip = request.getRemoteAddr();
 	}
 	
-	
+	@RequestMapping("jsTest")
+	public ModelAndView jsTest() throws Exception{
+			mv.setViewName("Dashio/jsTest");
+			return mv;
+		
+		
+	}
 	@RequestMapping("shopping")
 	public ModelAndView shoppingCondition(Shop_conditionDataBean article) throws Exception{
 		mv.addObject("id", article.getId());
@@ -74,13 +80,81 @@ public class ShoppingController {
 		mv.setViewName("Dashio/shopping");
 		return mv;
 	}
+	
+	public String url_check(String sub_cat) {
+		String url_check = null;
+		if(sub_cat == "일반 이어폰") {
+			url_check = "1189";
+		}else if(sub_cat == "블루투스 이어폰") {
+			url_check = "1065";
+		}
+		else if(sub_cat == "사운드바") {
+			url_check = "2561";
+		}
+		else if(sub_cat == "홈시어터") {
+			url_check = "0211";
+		}
+		else if(sub_cat.equals("포터블")) {
+			url_check = "0454";
+		}
+		else if(sub_cat == "마이크") {
+			url_check = "2564";
+		}
+		else if(sub_cat == "오디오") {
+			url_check = "1064";
+		}
+		else if(sub_cat == "일반 헤드폰") {
+			url_check = "1721";
+		}
+		else if(sub_cat == "안드로이드 태블릿") {
+			url_check = "1885";
+		}
+		else if(sub_cat == "전자사전") {
+			url_check = "0671";
+		}
+		else if(sub_cat == "PMP") {
+			url_check = "0785";
+		}
+		else if(sub_cat == "아이패드") {
+			url_check = "0249";
+		}
+		else if(sub_cat == "윈도우 태블릿") {
+			url_check = "2494";
+		}
+		else if(sub_cat == "DSLR") {
+			url_check = "0799";
+		}
+		else if(sub_cat == "디지털 카메라") {
+			url_check = "0455";
+		}
+		else if(sub_cat == "미러리스") {
+			url_check = "1945";
+		}
+		else if(sub_cat == "노트북") {
+			url_check = "1966";
+		}
+		else if(sub_cat == "조립PC") {
+			url_check = "1699";
+		}
+		else if(sub_cat == "올인원PC") {
+			url_check = "2130";
+		}
+		else if(sub_cat == "브랜드 데스크탑") {
+			url_check = "0433";
+		}
+		return url_check;
+	}
 	@RequestMapping("search")
 	public ModelAndView search(Shop_conditionDataBean article) throws Exception{
 		
 		HttpServletRequest request;
+		System.out.println(article.getSub_cat());
+		String url_check = url_check(article.getSub_cat());
+		System.out.println(url_check);
+				
 
 		//크롤링부분		
-		String url = "http://category.gmarket.co.kr/listview/List.aspx?gdmc_cd=200001065&ecp_gdlc=&ecp_gdmc=";
+		String url = "http://category.gmarket.co.kr/listview/List.aspx?gdmc_cd=20000"+url_check+"&ecp_gdlc=&ecp_gdmc=";
         Document doc = null;
         Map<Object, Object> crawlingMap = new HashMap<Object, Object>();
         Crawling_product cp = new Crawling_product();

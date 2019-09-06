@@ -29,7 +29,7 @@
 					</span>
 						<table class="table table-striped table-advance table-hover">
 							<h4>
-								<i class="fa fa-angle-right"></i> 나의 조건 목록
+								<i class="fa fa-angle-right"></i> 나의 검색 목록
 							</h4>
 							<hr>
 							<thead>
@@ -49,16 +49,34 @@
 							<c:set var="loop_flag" value="false" />
 							<tbody>
 								<c:forEach var="cl" items="${crawlingList}">
-									<c:forTokens var="title" items="${cl.title }" delims=" ">																											
-										<c:if test="${sc.product_name == title }">
+									<%-- <c:forTokens var="title" items="${cl.title }" delims=" "> --%>
+										<%-- <c:choose>
+											<c:when test="${sc.product_name == title }">																														
 											<tr>
 												<td>${cl.num }</td>
 												<td>${cl.title }</td>
 												<td>${cl.price }</td>
 												<td>${cl.brand }</td>
-											</tr>
-										</c:if>																		
-									</c:forTokens>
+											</tr>										
+											</c:when> --%>
+											<c:if test="${sc.brand == cl.brand }">
+												<tr>
+													<td>${cl.num }</td>
+													<td>${cl.title }</td>
+													<td>${cl.price }</td>
+													<td>${cl.brand }</td>
+												</tr>		
+											</c:if>
+											<%-- <c:when test="${fn:length(sc.wish_price) == fn:length(cl.price) and fn:substring(sc.wish_price, 0, 1) == fn:substring(cl.price, 0, 1) }">
+												<tr>
+													<td>${cl.num }</td>
+													<td>${cl.title }</td>
+													<td>${cl.price }</td>
+													<td>${cl.brand }</td>
+												</tr>
+											</c:when>	
+										</c:choose>	 --%>														
+									<%-- </c:forTokens> --%>
 								</c:forEach>
 							</tbody>
 						</table>

@@ -260,9 +260,12 @@ ${project = pageContext.request.contextPath ; ''}
               <span>카테고리</span>
               </a>
             <ul class="sub">
+            	<!--주호가만든 카테고리  -->
               <li><a href="${project}/Dashio/movie.jsp">영화</a></li>
               <li><a href="${project}/Dashio/air.jsp">항공</a></li>
               <li><a href="${project}/Dashio/shopping?boardid=3">쇼핑</a></li>
+              <li><a href="${project}/Dashio/jsTest">test</a></li>
+            	<!--주호가만든 카테고리  -->
             </ul>
           </li>
           <li class="sub-menu">

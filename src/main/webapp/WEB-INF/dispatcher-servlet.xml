@@ -20,10 +20,10 @@ http://www.springframework.org/schema/mvc/spring-mvc.xsd">
       <property name="prefix" value="/view/" />
       <property name="suffix" value=".jsp" />
    </bean>
-
+<!--주호  -->
    <mvc:resources mapping="/global-master/**" location="/view/global-master/" />
    <mvc:resources mapping="/Dashio/**" location="/view/Dashio/" />
-   
+<!--주호  -->   
    <context:component-scan base-package="controller, service" />
 
 <bean id="multipartResolver"

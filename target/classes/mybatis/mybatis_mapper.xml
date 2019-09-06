@@ -79,11 +79,7 @@
 	 from crawling_product  order by num)a)
 	where rnum between #{start} and #{end}
 	</select>
-	<!-- <select id="getCrawlings" parameterType="hashmap" resultType="CrawlingProduct">
-	select * from (select rownum rnum, a.* from(select num, title, price, brand, boardid 
-	 from crawling_product where boardid = #{boardid} order by num)a)
-	where rnum between #{start} and #{end}
-	</select> -->
+
 	
 <!-- 주호 끝 -->
 </mapper>

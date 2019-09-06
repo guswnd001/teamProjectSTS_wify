@@ -47,7 +47,6 @@ public class TheaterController {
 		mv.clear();
 		String id = (String)request.getSession().getAttribute("id");
 		int count =0;
-		System.out.println(id);
 		if(id != null) {
 			count = mr.theater_conditionExistById(id);
 		}

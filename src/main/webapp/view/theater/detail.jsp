@@ -8,7 +8,7 @@
 </head>
 <body>
 <h3><i class="fa fa-angle-right"></i> ${condition.movie_name } <button type="submit" class="btn btn-theme" style="margin-right:30px; float:right; margin-bottom:15px;"
-				onclick="location.href='${project}/theater/regFirst'"> 추가</button></h3>
+				onclick="location.href='${project}/theater/list'"> 목록</button></h3>
 				
 
 <div class="row">

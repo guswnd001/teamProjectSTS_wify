@@ -2,6 +2,7 @@
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="en">
+${project = pageContext.request.contextPath ; ''}
 <head>
   <title>Global</title>
   <meta charset="utf-8">
@@ -10,7 +11,7 @@
   <meta name="description" content="HTML5 website template">
   <meta name="keywords" content="global, template, html, sass, jquery">
   <meta name="author" content="Bucky Maler">
-  <link rel="stylesheet" href="assets/css/main.css">
+  <link rel="stylesheet" href="${project}/global-master/assets/css/main.css">
   
   <style type="text/css">
   	
@@ -22,7 +23,7 @@
 <!-- notification for small viewports and landscape oriented smartphones -->
 <div class="device-notification">
   <a class="device-notification--logo" href="#0">
-    <img src="assets/img/logo.png" alt="Global">
+    <img src="${project}/global-master/assets/img/logo.png" alt="Global">
     <p>Global</p>
   </a>
   <p class="device-notification--message">Global has so much to offer that we must request you orient your device to portrait or find a larger screen. You won't be disappointed.</p>
@@ -34,14 +35,14 @@
       <div class="l-wrapper">
         <header class="header">
           <a class="header--logo" href="#0">
-            <img src="assets/img/logo.png" alt="Global">
+            <img src="${project}/global-master/assets/img/logo.png" alt="Global">
             <p>WIFY</p>
           </a>
           <button class="header--cta cta">Join Us</button>
           <div class="header--nav-toggle">
             <!-- <span></span> -->
-            <a href="<%=request.getContextPath() %>/Dashio/index.html">
-            <img alt="" src="assets/img/arrow_white.png" style="width: 50px; height: 50px;"></a>
+            <a href="<%=request.getContextPath() %>/Dashio/index">
+            <img alt="" src="${project}/global-master/assets/img/arrow_white.png" style="width: 50px; height: 50px;"></a>
           </div>
         </header>
         <nav class="l-side-nav">
@@ -66,7 +67,7 @@
                   </svg>
                   <span class="btn-background"></span>
                 </button>
-                <img src="assets/img/introduction-visual.png" alt="Welcome">
+                <img src="${project}/global-master/assets/img/introduction-visual.png" alt="Welcome">
               </div>
               <div class="intro--options"
               	   >
@@ -93,7 +94,7 @@
                   <li class="slider--item slider--item-left">
                     <a href="#0">
                       <div class="slider--item-image">
-                        <img src="assets/img/work-victory.jpg" alt="Victory">
+                        <img src="${project}/global-master/assets/img/work-victory.jpg" alt="Victory">
                       </div>
                       <p class="slider--item-title" style="font-size: 15pt;">영화   &amp; 공연/전시</p>
                       <p class="slider--item-description">특정영화, 특정관 예매를 원할 때</p>
@@ -102,7 +103,7 @@
                   <li class="slider--item slider--item-center">
                     <a href="#0">
                       <div class="slider--item-image">
-                        <img src="assets/img/work-metiew-smith.jpg" alt="Metiew and Smith">
+                        <img src="${project}/global-master/assets/img/work-metiew-smith.jpg" alt="Metiew and Smith">
                       </div>
                       <p class="slider--item-title" style="font-size: 15pt;">항공권</p>
                       <p class="slider--item-description">어디든 <br>내가 원하는 가격에 여행을 원할 때</p>
@@ -111,7 +112,7 @@
                   <li class="slider--item slider--item-right">
                     <a href="#0">
                       <div class="slider--item-image">
-                        <img src="assets/img/work-alex-nowak.jpg" alt="Alex Nowak">
+                        <img src="${project}/global-master/assets/img/work-alex-nowak.jpg" alt="Alex Nowak">
                       </div>
                       <p class="slider--item-title" style="font-size: 15pt;">쇼핑</p>
                       <p class="slider--item-description">갖고 싶은 상품을 <br>내가 원하는 가격에 구매하고 싶을 때</p>
@@ -151,7 +152,7 @@
                     </svg>
                   </span>
                 </a>
-                <img src="assets/img/about-visual.png" alt="About Us">
+                <img src="${project}/global-master/assets/img/about-visual.png" alt="About Us">
               </div>
               <div class="about--options">
                 <a href="#0">
@@ -283,7 +284,7 @@
 </div>
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
-<script>window.jQuery || document.write('<script src="assets/js/vendor/jquery-2.2.4.min.js"><\/script>')</script>
-<script src="assets/js/functions-min.js"></script>
+<script>window.jQuery || document.write('<script src="${project}/global-master/assets/js/vendor/jquery-2.2.4.min.js"><\/script>')</script>
+<script src="${project}/global-master/assets/js/functions-min.js"></script>
 </body>
 </html>

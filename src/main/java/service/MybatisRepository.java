@@ -19,7 +19,6 @@ public class MybatisRepository {
 	@Autowired
 	public MyBatisConnector myBatisConnector;
 	
-	// ===================================== 영화관 정보 ================
 	public List<TheaterInfo> getTheaterInfos() throws Exception {
 		SqlSession sqlSession = myBatisConnector.sqlSession();
 		
@@ -77,7 +76,6 @@ public class MybatisRepository {
 		}
 	}
 	
-	// ===================================== 조건 정보 ================
 	
 	public List theater_condition() throws Exception {
 		SqlSession sqlSession = myBatisConnector.sqlSession();

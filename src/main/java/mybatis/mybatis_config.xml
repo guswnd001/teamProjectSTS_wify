@@ -8,6 +8,8 @@
 		<typeAlias type="model.TheaterCondition" alias="TheaterCondition"/>
 		<typeAlias type="model.TeamBoardDataBean" alias="Board" />
 		<typeAlias type="model.TeamMemberDataBean" alias="Member" />
+		<typeAlias type="model.Shop_conditionDataBean" alias="ShopCondition"/>
+		<typeAlias type="model.Crawling_product" alias="CrawlingProduct"/>
 	</typeAliases>
 
 
